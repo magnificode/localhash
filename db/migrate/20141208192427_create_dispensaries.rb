@@ -3,7 +3,7 @@ class CreateDispensaries < ActiveRecord::Migration
     create_table :dispensaries do |t|
       t.string :name
       t.string :city
-      t.text :state
+      t.string :state
 
       t.timestamps
     end

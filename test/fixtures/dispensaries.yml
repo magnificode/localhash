@@ -3,9 +3,9 @@
 one:
   name: MyString
   city: MyString
-  state: MyText
+  state: MyString
 
 two:
   name: MyString
   city: MyString
-  state: MyText
+  state: MyString
