@@ -1,14 +1,39 @@
 Rails.application.routes.draw do
-  resources :dispensaries
+  get 'accounts/index'
+  get 'dashboard/index'
+  get 'home/index'
 
-  root 'dispensaries#index'
+  devise_for :users
 
+  namespace :admins do
+    get 'dashboard/index'
+  end
+
+  devise_for :admins
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
- 
+  # root 'home#index'
+
+  authenticated :user do
+    devise_scope :user do
+      root to: "dashboard#index", :as => "authenticated"
+    end
+  end
+
+  unauthenticated do
+    devise_scope :user do
+      root to: "home#index", :as => "unauthenticated"
+    end
+  end
+
+  authenticated :admin do
+    devise_scope :admin do
+      root to: "admins/dashboard#index", :as => "admin"
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -35,8 +60,7 @@ Rails.application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
-
-  # Example resource route with more complex sub-resources:
+   # Example resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments
   #     resources :sales do
