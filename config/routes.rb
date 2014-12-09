@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  get 'accounts/show'
+
+  get 'accounts/new'
+
+  get 'accounts/edit'
+
+  get 'accounts/delete'
+
+  get 'memberships/index'
+
+  get 'memberships/show'
+
+  get 'memberships/new'
+
+  get 'memberships/edit'
+
+  get 'memberships/delete'
+
   get 'accounts/index'
   get 'dashboard/index'
   get 'home/index'

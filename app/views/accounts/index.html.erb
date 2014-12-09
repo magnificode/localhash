@@ -1,0 +1,11 @@
+<h1>Account</h1>
+
+<p><i>Just a placeholder for account information</i></p>
+
+<h2>Account Users</h2>
+
+<ul>
+	  <% @account_users.each do |user| %>
+	  <li><%= user.email %></li>
+	  <% end %>
+  </ul>
