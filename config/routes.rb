@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'home#index'
 
+authenticated :admin do
+  devise_scope :admin do
+    root to: "admins/dashboard#index", :as => "admin"
+  end
+end
+
   authenticated :user do
     devise_scope :user do
       root to: "dashboard#index", :as => "authenticated"
@@ -28,11 +34,6 @@ Rails.application.routes.draw do
     end
   end
 
-  authenticated :admin do
-    devise_scope :admin do
-      root to: "admins/dashboard#index", :as => "admin"
-    end
-  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
