@@ -34,6 +34,8 @@ gem 'rails_12factor', group: :production
 
 gem 'devise'
 
+gem 'foundation-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
